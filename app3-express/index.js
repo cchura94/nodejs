@@ -1,5 +1,6 @@
 var express = require('express')
 var morgan = require('morgan')
+const router = require('./router/index.js')
 
 var app = express()
 
@@ -8,6 +9,8 @@ app.use(morgan('dev'))
 app.get('/', function (req, res) {
   res.send('Hola Mundo 2!')
 })
+
+router.adicionar(app)
 
 /*app.get('/admin', function (req, res) {
     res.send('Hola Mundo 2!')
