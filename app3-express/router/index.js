@@ -1,20 +1,14 @@
+const productoController = require("./../controllers/productoController")
 
 module.exports.adicionar = (app) => {
 
-    app.get("/producto", (req, res) => {
-        res.send("Lista de Productos");
-    })
-    app.get("/producto/crear", (req, res) => {
-        res.send("Nuevo Producto");
-    })
-    
-    app.get("/producto/:id", (req, res) => {
-        res.send("Mostrar Producto");
-    })
-    
-    app.get("/producto/:id/editar", (req, res) => {
-        res.send("Editar Producto");
-    })
+    app.get("/producto", productoController.listar);
+    app.get("/producto/crear", productoController.crear);
+    app.post("/producto", productoController.guardar);       
+    app.get("/producto/:id", productoController.mostrar);    
+    app.get("/producto/:id/editar", productoController.editar);
+    app.put("/producto/:id", productoController.modificar);
+    app.delete("/producto/:id", productoController.eliminar);
 
 }
 

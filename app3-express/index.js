@@ -4,10 +4,12 @@ const router = require('./router/index.js')
 
 var app = express()
 
+app.set('view engine', 'ejs');
+
 app.use(morgan('dev'))
 
 app.get('/', function (req, res) {
-  res.send('Hola Mundo 2!')
+  res.render("paginas/index")
 })
 
 router.adicionar(app)
